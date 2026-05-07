@@ -1,0 +1,15 @@
+<label for="post-content">Enter Some Content</label>
+
+<textarea
+    #postContent
+    id="post-content"
+    [value]="content()"
+    (input)="content.set(postContent.value)"
+    rows="10"></textarea>
+
+<button (click)="preview()">Preview</button>
+
+@if (previewHtml()) {
+    <h2>Post Preview</h2>
+    <div [innerHTML]="previewHtml()"></div>
+}
